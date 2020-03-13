@@ -1,13 +1,17 @@
 <template>
-	<v-column>
+	<v-col>
+		<v-col>
+			<v-row align="center" justify="center">
+				<h1> {{ title }} </h1>
+			</v-row>
+			<v-row align="center" justify="center">
+				<h2>I'm a {{ profession }} </h2>
+			</v-row>
+		</v-col>
 		<v-row align="center" justify="center">
-			<v-column>
-			<h1> {{ title }} </h1>
-			<h2>I'm a {{ profession }} </h2>
-			</v-column>
+			<projects :showCase="showCase"></projects>
 		</v-row>
-		<projects :showCase="showCase"> </projects>
-	</v-column>
+	</v-col>
 </template>
 
 <script>

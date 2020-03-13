@@ -1,11 +1,10 @@
 <template>
-  <v-sheet class="mx-auto" max-width="250">
-    <v-slide-group multiple show-arrows>
+  <v-sheet>
+    <v-slide-group show-arrows>
       <v-slide-item v-for="key in techStack" :key="key.id">
         <v-icon :size="iconSize">{{key.src}}</v-icon>
       </v-slide-item>
     </v-slide-group>
-
   </v-sheet>
 </template>
 
@@ -17,7 +16,7 @@
     },
     data() {
       return {
-        iconSize: '55px'       
+        iconSize: '70px'       
       }
     }
   }

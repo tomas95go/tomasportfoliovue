@@ -17,9 +17,7 @@
 
     <v-content>
       <v-container fluid>
-        <v-row align="center" justify="center">
-          <nuxt />
-        </v-row>
+        <nuxt />
       </v-container>
     </v-content>
     <v-footer color="indigo" app>
