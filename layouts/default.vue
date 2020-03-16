@@ -1,18 +1,25 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" app>
-      <v-list dense>
-        <v-list-item v-for="item in items" :key="item.title">
-          <v-list-item-icon v-if="delay === 'readyToMount'">
-            <v-switch v-model="isDarkThemeOn" @change="switchTheme" :prepend-icon="item.preIcon" :append-icon="item.postIcon"></v-switch>
-          </v-list-item-icon>
-        </v-list-item>
+      <v-list flat>
+          <v-list-item v-for="item in items" :key="item.title">
+            <v-list-item-icon v-if="delay === 'readyToMount' && item.isSwitch">
+              <v-switch v-if="item.isSwitch" v-model="isDarkThemeOn" @change="switchTheme" :prepend-icon="item.preIcon"></v-switch>
+            </v-list-item-icon>
+            <v-list-item-icon v-else>
+              <nuxt-link to="/book-store">
+                <v-btn text small> 
+                  <v-icon v-text="item.icon"></v-icon>
+                </v-btn>
+              </nuxt-link>
+            </v-list-item-icon>
+            <v-list-item-title> {{ item.title }}</v-list-item-title>
+          </v-list-item>    
       </v-list>
     </v-navigation-drawer>
 
     <v-app-bar app color="indigo" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
 
     <v-content>
@@ -35,14 +42,18 @@
       return {
         drawer: true,
         items: [
-              { title: 'About', preIcon: '', postIcon: ''  },
-            ],
-            isDarkThemeOn: false,
-            miniVariant: false,
-            expandOnHover: false,
-            background: false,
-            delay: '',
-            year: 0
+              { title: 'Switch', preIcon: '', isSwitch: true  },
+              { title: 'Spanish', icon: '$vuetify.icons.spflag', isSwitch: false},
+              { title: 'English', icon: '$vuetify.icons.ukflag', isSwitch: false},
+              { title: 'About me', icon: 'mdi-account-tie', isSwitch: false}
+        ],
+        isDarkThemeOn: false,
+        miniVariant: false,
+        expandOnHover: false,
+        background: false,
+        delay: '',
+        year: 0,
+        inset: false,
       }
     },
     mounted(){
@@ -69,12 +80,10 @@
         if(this.$vuetify.theme.dark == false){
           this.$vuetify.theme.dark = true;  
           window.localStorage.setItem('userSelectedTheme', 'dark');
-          this.items[0].postIcon = 'mdi-moon-waning-crescent';
-          this.items[0].preIcon = '';
+          this.items[0].preIcon = 'mdi-moon-waning-crescent';
         }else{
           this.$vuetify.theme.dark = false;
           window.localStorage.setItem('userSelectedTheme', 'light');
-          this.items[0].postIcon = '';
           this.items[0].preIcon = 'mdi-white-balance-sunny';
         }
       }

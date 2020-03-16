@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors';
+import IconSpa from '../../components/Icons/IconSpa.vue';
+import IconEng from '../../components/Icons/IconEng.vue';
 
 export default {
 	name: 'vuetifyoptions',
@@ -20,5 +22,19 @@ export default {
   				warning: '#FFC107'
 	      	}
 		}
-  	}
+	  },
+	  font: {
+		  family: 'Roboto'
+	  },
+	  icons: {
+		iconfont: 'mdi',
+		values: {
+		  spflag:{
+			component: IconSpa
+		  },
+		  ukflag: {
+			component: IconEng
+		  }
+		},
+	  },
 }

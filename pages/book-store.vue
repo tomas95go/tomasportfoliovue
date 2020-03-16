@@ -1,5 +1,5 @@
 <template>
 	<v-col>
-		Hi!
+		<NuxtLink to="/">Hi!</NuxtLink>
 	</v-col>
 </template>

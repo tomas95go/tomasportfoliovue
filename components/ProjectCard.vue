@@ -11,10 +11,12 @@
           <v-card-text class="text-center"> {{ projectDescription }} </v-card-text>
         </v-row>
         <v-row align="center" justify="center" class="mt-3">
-          <v-btn text small color="blue" :href="hrefLink" :nuxt="nuxtComponent"> 
-            Info 
-            <v-icon> {{ infoIcon }} </v-icon>
-          </v-btn>
+          <NuxtLink :to="hrefLink">
+            <v-btn text small color="blue"> 
+              Info 
+              <v-icon> {{ infoIcon }} </v-icon>
+            </v-btn>
+          </NuxtLink>
         </v-row>
       </v-col>
       <v-divider></v-divider>
@@ -32,7 +34,7 @@
     data(){
       return {
         infoIcon: 'mdi-information-outline',
-        nuxtComponent: true
+        nuxtComponent: true,
       }
     },
     props: {
@@ -50,5 +52,4 @@
 </script>
 
 <style>
-
 </style>
