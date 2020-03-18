@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar app color="indigo" dark :dense="dense">
+    <v-app-bar 
+    color="indigo" 
+    dark :dense="dense" 
+    :class="hideOnSmallScreen" 
+    v-if=" hideOnSmallScreen === 'hidden-sm-and-down'" app>
       <v-btn text @click="switchTheme">
         <v-icon v-text="items[0].icon"></v-icon>
         {{ items[0].title }}
@@ -22,13 +26,37 @@
         {{ items[3].title }}
       </v-btn>
     </v-app-bar>
+    <v-app-bar dark class="hidden-lg-and-up" app :hide-on-scroll="true">
+      <v-spacer></v-spacer>
+      <v-toolbar-title> Portfolio </v-toolbar-title>
+      <v-spacer></v-spacer>
+    </v-app-bar>
 
     <v-content>
       <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer color="indigo" app>
+    <v-bottom-navigation v-model="bottomNav" class="hidden-md-and-up" :absolute="absolute" grow app>
+      <v-btn @click="switchTheme">
+      <span>{{ items[0].title }}</span>
+      <v-icon v-text="items[0].icon"></v-icon>
+      </v-btn>
+      <v-btn  
+      v-for="item in items" 
+      :key="item.title" 
+      :nuxt="link" 
+      :to="item.link"
+      v-if="item.id !== 0 && item.id !== 2">
+      <span>{{ item.title }}</span>
+        <v-icon v-text="item.icon"></v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+    <v-footer 
+    color="indigo"
+    :class="hideOnSmallScreen" 
+    v-if="hideOnSmallScreen !== 'hide-sm-and-down'"
+    app>
       <span class="white--text">&copy; {{year}}</span>
     </v-footer>
   </v-app>
@@ -48,8 +76,11 @@
               { id: 3, title: 'About me', icon: 'mdi-account-tie', link: '/book-store'},
               { id: 4, title: 'Resume', icon: 'mdi-file-account', link: '/book-store'},
         ],
+        hideOnSmallScreen: 'hidden-sm-and-down',
         link: true,
         dense: true,
+        absolute: false,
+        bottomNav: 'recent',
         isDarkThemeOn: false,
         miniVariant: false,
         expandOnHover: false,
