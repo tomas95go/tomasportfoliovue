@@ -13,7 +13,12 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    metaInfo: {
+      script: [
+        { src: 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js', async: true, defer: true }
+      ],
+    }
   },
   /*
   ** Customize the progress-bar color
