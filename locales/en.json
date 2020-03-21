@@ -1,0 +1,21 @@
+{
+    "links": {
+      "resume": "Resume",
+      "about": "About me %{msg}",
+      "spanish": "Spanish",
+      "enligsh": "English"
+    },
+    "actions": {
+      "dark Theme": "Dark Theme",
+      "light Theme": "Light Theme"
+    },
+    "home": {
+      "title": "Welcome",
+      "introduction": "This is an introduction in English."
+    },
+    "about": {
+      "title": "About",
+      "introduction": "This page is made to give you more informations."
+    }
+  }
+  

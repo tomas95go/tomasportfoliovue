@@ -1,0 +1,17 @@
+{
+    "links": {
+      "home": "Página Principal",
+      "about": "Acerca de mí",
+      "english": "Versión en Inglés",
+      "spanish": "Versión en Español"
+    },
+    "home": {
+      "title": "Bienvenido",
+      "introduction": "Soy un desarrollador de software web."
+    },
+    "about": {
+      "title": "Acerca de mí",
+      "introduction": "Este es mi perfil."
+    }
+  }
+  

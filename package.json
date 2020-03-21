@@ -11,10 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-i18n": "^8.15.5"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",

@@ -8,6 +8,15 @@
       :class="hideOnSmallScreen"
       app
     >
+      <NuxtLink
+        v-if="$i18n.locale === 'en'"
+        :to="`/es` + $route.fullPath"
+        class="Header__Link"
+        active-class="none"
+        exact
+      >
+        {{ $t("links.about", { msg: "no es lo que parece" }) }}
+      </NuxtLink>
       <v-btn text @click="switchTheme">
         <v-icon v-text="items[0].icon"></v-icon>
         {{ items[0].title }}
@@ -75,6 +84,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: {
     source: String
@@ -82,28 +92,28 @@ export default {
   data() {
     return {
       items: [
-        { id: 0, title: "Dark Theme", icon: "" },
+        {
+          id: 0,
+          icon: ""
+        },
         {
           id: 1,
-          title: "Spanish",
           icon: "$vuetify.icons.spflag",
           link: "/spanish"
         },
         {
           id: 2,
-          title: "English",
           icon: "$vuetify.icons.ukflag",
           link: "/english"
         },
         {
           id: 3,
-          title: "About me",
           icon: "mdi-account-tie",
           link: "/book-store"
         },
         {
           id: 4,
-          title: "Resume",
+          title: "",
           icon: "mdi-file-account",
           link: "/book-store"
         }
@@ -125,6 +135,17 @@ export default {
   mounted() {
     const currentYear = new Date();
     this.year = currentYear.getFullYear();
+    axios
+      .get("http://localhost:3001/links")
+      .then(response => {
+        console.log("response" + response.data.resume);
+        let testObj = {
+          resume: response.data.resume
+        };
+        console.log(this.items[4].title);
+        this.items[4].title = testObj.resume;
+      })
+      .catch(error => console.log(error));
     if (localStorage.userSelectedTheme === "dark") {
       window.setTimeout(() => {
         this.$vuetify.theme.dark = true;
