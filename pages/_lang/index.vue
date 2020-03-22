@@ -3,7 +3,6 @@
     <v-col>
       <v-row align="center" justify="center">
         <h1>{{ title }}</h1>
-        <h1>{{ $t("home.title") }}</h1>
       </v-row>
       <v-row align="center" justify="center">
         <h2>I'm a {{ profession }}</h2>
@@ -25,7 +24,8 @@ export default {
     return {
       title: `González Oviedo Tomás Emiliano`,
       profession: `Web Developer`,
-      showCase: `Projects`
+      showCase: `Projects`,
+      resume: `resume`
     };
   }
 };

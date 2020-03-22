@@ -1,17 +1,27 @@
 {
-    "links": {
-      "home": "Página Principal",
-      "about": "Acerca de mí",
-      "english": "Versión en Inglés",
-      "spanish": "Versión en Español"
-    },
-    "home": {
-      "title": "Bienvenido",
-      "introduction": "Soy un desarrollador de software web."
-    },
-    "about": {
-      "title": "Acerca de mí",
-      "introduction": "Este es mi perfil."
+  "navbar": {
+    "resume": "Curriculum Vitae",
+    "about": "Acerca de mí",
+    "spanish": "Español",
+    "english": "Inglés",
+    "darktheme": "Modo oscuro",
+    "lighttheme": "Modo claro",
+    "icons": {
+      "resume": "mdi-file-account",
+      "about": "mdi-account-tie",
+      "spanish": "$vuetify.icons.spflag",
+      "english": "$vuetify.icons.ukflag",
+      "darktheme": "mdi-moon-waning-crescent",
+      "lighttheme": "mdi-white-balance-sunny"
     }
+  },
+  "home": {
+    "title": "Bienvenido",
+     "introduction": "Esta es una intro en espaniol."
+  },
+  "about": {
+    "title": "Acerca de mi",
+    "introduction": "Esta pagina se supone da mas info."
   }
+}
   
