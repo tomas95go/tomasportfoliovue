@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="vuetify">
     <v-app-bar
       v-if="hideOnSmallScreen === 'hidden-sm-and-down'"
       color="teal darken-4"
@@ -105,12 +105,20 @@ export default {
       delay: "",
       disabled: true,
       year: 0,
-      inset: false
+      inset: false,
+      vuetify: this.$vuetify.theme.dark
     };
+  },
+  watch: {
+    isDarkThemeOn() {
+      console.log(this.isDarkThemeOn);
+    }
   },
   mounted() {
     const currentYear = new Date();
     this.year = currentYear.getFullYear();
+    console.log(document.documentElement.getAttribute("data-theme"));
+    let trying = document.documentElement.getAttribute("data-theme");
     if (localStorage.userSelectedTheme === "dark") {
       window.setTimeout(() => {
         this.$vuetify.theme.dark = true;

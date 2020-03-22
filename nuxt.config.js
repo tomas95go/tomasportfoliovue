@@ -15,6 +15,9 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
+    htmlAttrs: {
+      "data-theme": "light"
+    },
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     router: {
       middleware: "i18n"
