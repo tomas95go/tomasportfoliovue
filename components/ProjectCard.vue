@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" justify="center">
     <v-card outlined class="mt-3">
-      <v-card-title class="justify-center">{{ projectName }}</v-card-title>
+      <v-card-title class="justify-center">{{ $t(projectName) }}</v-card-title>
       <v-divider></v-divider>
       <v-row align="center" justify="center" class="mt-3">
         <v-img :src="imgSrc" :max-height="imgSize" :max-width="imgSize"></v-img>
@@ -9,7 +9,7 @@
       <v-col>
         <v-row align="center" justify="center" class="mt-3">
           <v-card-text class="text-center">
-            {{ projectDescription }}
+            {{ $t(projectDescription) }}
           </v-card-text>
         </v-row>
         <v-row align="center" justify="center" class="mt-3">
@@ -30,9 +30,9 @@
 </template>
 
 <script>
-import ProjectTechStack from "../components/ProjectTechStack";
+import ProjectTechStack from '../components/ProjectTechStack';
 export default {
-  name: "ProjectCard",
+  name: 'ProjectCard',
   components: {
     ProjectTechStack
   },
@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      infoIcon: "mdi-information-outline",
+      infoIcon: 'mdi-information-outline',
       nuxtComponent: true
     };
   }

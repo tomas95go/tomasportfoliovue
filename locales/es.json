@@ -16,12 +16,25 @@
     }
   },
   "home": {
-    "title": "Bienvenido",
-     "introduction": "Esta es una intro en espaniol."
+    "title": "González Oviedo Tomás Emiliano",
+     "introduction": "Soy un desarrollador web"
   },
-  "about": {
-    "title": "Acerca de mi",
-    "introduction": "Esta pagina se supone da mas info."
-  }
+  "projects": {
+    "title": "Mis proyectos",
+    "projectList": [{
+      "firstProject": {
+        "title": "Sistema de manejo de inventario.",
+        "description": "Práctica profesional I."
+      },
+      "secondProject": {
+        "title": "Sistema de manejo de inventario.",
+        "description": "Práctica profesional II."
+      },
+      "thirdProject": {
+        "title": "Sistema de información estudiantil.",
+        "description": "Trabajo final para graduarme de la universidad."
+      }
+    }]
+  }  
 }
   

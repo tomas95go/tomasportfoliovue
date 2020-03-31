@@ -2,31 +2,23 @@
   <v-col>
     <v-col>
       <v-row align="center" justify="center">
-        <h1>{{ title }}</h1>
+        <h1>{{ $t('home.title') }}</h1>
       </v-row>
       <v-row align="center" justify="center">
-        <h2>I'm a {{ profession }}</h2>
+        <h2>{{ $t('home.introduction') }}</h2>
       </v-row>
     </v-col>
     <v-row align="center" justify="center">
-      <Projects :show-case="showCase"></Projects>
+      <Projects></Projects>
     </v-row>
   </v-col>
 </template>
 
 <script>
-import Projects from "../../components/Projects";
+import Projects from '../../components/Projects';
 export default {
   components: {
     Projects
-  },
-  data() {
-    return {
-      title: `González Oviedo Tomás Emiliano`,
-      profession: `Web Developer`,
-      showCase: `Projects`,
-      resume: `resume`
-    };
   }
 };
 </script>
